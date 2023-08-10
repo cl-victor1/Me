@@ -14,8 +14,8 @@
    `pip install -r requirements.txt`
    `pip install transformers==4.27.1`
    `pip install rouge_chinese nltk jieba datasets`
-8. 运行bash train.sh开始训练。
-9. 训练结束后我们运行bash web_demo.sh测试效果。运行之前需要改一下web_demo.py的`demo.queue().launch()`，改为`share=True`，这样就可以用浏览器测试了。
+8. 运行`bash train.sh`开始训练。
+9. 训练结束后我们运行`bash web_demo.sh`测试效果。运行之前需要改一下web_demo.py的`demo.queue().launch()`，改为`share=True`，这样就可以用浏览器测试了。
 
 ## 注意事项：
 1. 可以将train.sh中的save_steps设置得小一些，如设为200，意味着每200次迭代记录一个checkpoint。如果打断了训练过程，下一次还可以从某一个checkpoint继续进行（在train.sh中加一行`--ptuning_checkpoint /root/autodl-tmp/chatglm/ChatGLM2-6B/ptuning/output/chatglm-6b-pt-96-2e-2/checkpoint-2000 \`，当然这里的路径要改成你的实际路径）。同时，微调结束后的推理也要依赖这些checkpoint。
