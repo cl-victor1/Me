@@ -1,0 +1,716 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Miniconda &mdash; conda   documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/conda-logo.png"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="/_/static/javascript/readthedocs-doc-embed.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Help and support" href="help-support.html" />
+    <link rel="prev" title="Conda-build" href="conda-build.html" /> 
+
+<!-- RTD Extra Head -->
+
+<link rel="stylesheet" href="/_/static/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="application/json" id="READTHEDOCS_DATA">{"ad_free": false, "api_host": "https://readthedocs.com", "builder": "sphinx", "canonical_url": null, "docroot": "docs/source/", "features": {"docsearch_disabled": false}, "global_analytics_code": "UA-17997319-2", "language": "en", "page": "miniconda", "programming_language": "words", "project": "continuumio-conda-docs", "proxied_api_host": "/_", "source_suffix": ".rst", "subprojects": {"continuumio-conda": "https://docs.conda.io/projects/conda/en/stable/", "continuumio-conda-build": "https://docs.conda.io/projects/conda-build/en/stable/", "continuumio-constructor": "https://docs.conda.io/projects/constructor/en/latest/"}, "theme": "sphinx_rtd_theme", "user_analytics_code": "UA-143855151-1", "version": "latest"}</script>
+
+<!--
+Using this variable directly instead of using `JSON.parse` is deprecated.
+The READTHEDOCS_DATA global variable will be removed in the future.
+-->
+<script type="text/javascript">
+READTHEDOCS_DATA = JSON.parse(document.getElementById('READTHEDOCS_DATA').innerHTML);
+</script>
+
+<script type="text/javascript" src="/_/static/javascript/readthedocs-analytics.js" async="async"></script>
+
+<!-- end RTD <extrahead> -->
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> conda
+          
+
+          
+          </a>
+
+          
+            
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="conda.html">Conda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conda-build.html">Conda-build</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Miniconda</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-requirements">System requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing">Installing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#latest-miniconda-installer-links">Latest Miniconda Installer Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-installers">Windows installers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#macos-installers">macOS installers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-installers">Linux installers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#release-notes">Release Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#other-resources">Other resources</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="help-support.html">Help and support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">Conda license</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">conda</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Miniconda</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            
+              <a href="https://github.com/conda/conda-docs/blob/master/docs/source/miniconda.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="miniconda">
+<h1>Miniconda<a class="headerlink" href="#miniconda" title="Permalink to this headline">¶</a></h1>
+<p>Miniconda is a free minimal installer for conda. It is a small, bootstrap
+version of Anaconda that includes only conda, Python, the packages they depend
+on, and a small number of other useful packages, including pip, zlib and a
+few others. Use the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> command to install 720+ additional conda
+packages from the Anaconda repository.</p>
+<p><a class="reference external" href="https://docs.conda.io/projects/conda/en/stable/user-guide/install/download.html#anaconda-or-miniconda">See if Miniconda is right for you</a>.</p>
+<div class="section" id="system-requirements">
+<h2>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>License: Free use and redistribution under the terms of the <a class="reference external" href="https://legal.anaconda.com/policies/en?name=offering-specific-terms#miniconda">EULA for Miniconda</a>.</li>
+<li>Operating system: Windows 10 or newer, 64-bit macOS 10.13+, or Linux, including Ubuntu, RedHat, CentOS 7+, and others.</li>
+<li>If your operating system is older than what is currently supported, you can find older versions of the Miniconda installers in our <a class="reference external" href="https://repo.anaconda.com/miniconda/">archive</a> that might work for you.</li>
+<li>System architecture: Windows- 64-bit x86, 32-bit x86; macOS- 64-bit x86 &amp; Apple M1 (ARM64); Linux- 64-bit x86, 64-bit aarch64 (AWS Graviton2), 64-bit IBM Power8/Power9, s390x (Linux on IBM Z &amp; LinuxONE).</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">linux-aarch64</span></code> Miniconda installer requires <code class="docutils literal notranslate"><span class="pre">glibc</span> <span class="pre">&gt;=2.26</span></code> and thus will <strong>not</strong> work with CentOS 7, Ubuntu 16.04, or Debian 9 (“stretch”).</li>
+<li>Minimum 400 MB disk space to download and install.</li>
+</ul>
+<p>On Windows, macOS, and Linux, it is best to install Miniconda for the local user,
+which does not require administrator permissions and is the most robust type of
+installation. However, if you need to, you can install Miniconda system wide,
+which does require administrator permissions.</p>
+</div>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="miniconda_hashes.html"><span class="doc">See hashes for all Miniconda installers</span></a>.</li>
+<li><a class="reference external" href="https://conda.io/projects/conda/en/stable/user-guide/install/download.html#cryptographic-hash-verification">Verify your installation</a>.</li>
+<li><a class="reference external" href="https://conda.io/projects/conda/en/stable/user-guide/install/index.html">Installation
+instructions</a>.</li>
+</ul>
+</div>
+<div class="section" id="latest-miniconda-installer-links">
+<h2>Latest Miniconda Installer Links<a class="headerlink" href="#latest-miniconda-installer-links" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils" id="id39">
+<caption><span class="caption-text">Latest - Conda 23.5.2 Python 3.11.3 released July 13, 2023</span><a class="headerlink" href="#id39" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="5%" />
+<col width="11%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Platform</th>
+<th class="head">Name</th>
+<th class="head">SHA256 hash</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Windows</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe">Miniconda3 Windows 64-bit</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">00e8370542836862d4c790aa8966f1d7344a8addd4b766004febcb23f40e2914</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86.exe">Miniconda3 Windows 32-bit</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">4fb64e6c9c28b88beab16994bfba4829110ea3145baa60bda5344174ab65d462</span></code></td>
+</tr>
+<tr class="row-even"><td>macOS</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh">Miniconda3 macOS Intel x86 64-bit bash</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">1622e7a0fa60a7d3d892c2d8153b54cd6ffe3e6b979d931320ba56bd52581d4b</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.pkg">Miniconda3 macOS Intel x86 64-bit pkg</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">2236a243b6cbe6f16ec324ecc9e631102494c031d41791b44612bbb6a7a1a6b4</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh">Miniconda3 macOS Apple M1 64-bit bash</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">c8f436dbde130f171d39dd7b4fca669c223f130ba7789b83959adc1611a35644</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.pkg">Miniconda3 macOS Apple M1 64-bit pkg</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">837371f3b6e8ae2b65bdfc8370e6be812b564ff9f40bcd4eb0b22f84bf9b4fe5</span></code></td>
+</tr>
+<tr class="row-even"><td>Linux</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh">Miniconda3 Linux 64-bit</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">634d76df5e489c44ade4085552b97bebc786d49245ed1a830022b0b406de5817</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh">Miniconda3 Linux-aarch64 64-bit</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">3962738cfac270ae4ff30da0e382aecf6b3305a12064b196457747b157749a7a</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-ppc64le.sh">Miniconda3 Linux-ppc64le 64-bit</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">92237cb2a443dd15005ec004f2f744b14de02cd5513a00983c2f191eb43d1b29</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-s390x.sh">Miniconda3 Linux-s390x 64-bit</a></td>
+<td><code class="docutils literal notranslate"><span class="pre">221a4cd7f0a9275c3263efa07fa37385746de884f4306bb5d1fe5733ca770550</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="windows-installers">
+<h2>Windows installers<a class="headerlink" href="#windows-installers" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils" id="id40">
+<caption><span class="caption-text">Windows</span><a class="headerlink" href="#id40" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="5%" />
+<col width="10%" />
+<col width="5%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Python version</th>
+<th class="head">Name</th>
+<th class="head">Size</th>
+<th class="head">SHA256 hash</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Python 3.11</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Windows-x86_64.exe">Miniconda3 Windows 64-bit</a></td>
+<td>73.2 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">00e8370542836862d4c790aa8966f1d7344a8addd4b766004febcb23f40e2914</span></code></td>
+</tr>
+<tr class="row-odd"><td>Python 3.10</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Windows-x86_64.exe">Miniconda3 Windows 64-bit</a></td>
+<td>69.5 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">e15638645b34921098a3f760fd8af07e53a427f59b99a0f049420a7751cbbc05</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.9</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-Windows-x86_64.exe">Miniconda3 Windows 64-bit</a></td>
+<td>70.0 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">f5738ced68d9ed82996575202dea9375c51fa6419a8e0f3456398c6557a87dc2</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_4.12.0-Windows-x86.exe">Miniconda3 Windows 32-bit</a></td>
+<td>67.8 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">4fb64e6c9c28b88beab16994bfba4829110ea3145baa60bda5344174ab65d462</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.8</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-Windows-x86_64.exe">Miniconda3 Windows 64-bit</a></td>
+<td>71.0 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">585befbcd3a3b532d34bba8ab63818d6bc7cfde975b5d6a7fc49483b6a84f371</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Windows-x86.exe">Miniconda3 Windows 32-bit</a></td>
+<td>66.8 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">60cc5874b3cce9d80a38fb2b28df96d880e8e95d1b5848b15c20f1181e2807db</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="macos-installers">
+<h2>macOS installers<a class="headerlink" href="#macos-installers" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils" id="id41">
+<caption><span class="caption-text">macOS</span><a class="headerlink" href="#id41" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="5%" />
+<col width="10%" />
+<col width="5%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Python version</th>
+<th class="head">Name</th>
+<th class="head">Size</th>
+<th class="head">SHA256 hash</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Python 3.11</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-MacOSX-x86_64.sh">Miniconda3 macOS Intel x86 64-bit bash</a></td>
+<td>69.6 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">1622e7a0fa60a7d3d892c2d8153b54cd6ffe3e6b979d931320ba56bd52581d4b</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-MacOSX-x86_64.pkg">Miniconda3 macOS Intel x86 64-bit pkg</a></td>
+<td>69.2 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">2236a243b6cbe6f16ec324ecc9e631102494c031d41791b44612bbb6a7a1a6b4</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-MacOSX-arm64.sh">Miniconda3 macOS Apple M1 64-bit bash</a></td>
+<td>68.6 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">c8f436dbde130f171d39dd7b4fca669c223f130ba7789b83959adc1611a35644</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-MacOSX-arm64.pkg">Miniconda3 macOS Apple M1 64-bit pkg</a></td>
+<td>68.1 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">837371f3b6e8ae2b65bdfc8370e6be812b564ff9f40bcd4eb0b22f84bf9b4fe5</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.10</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-MacOSX-x86_64.sh">Miniconda3 macOS Intel x86 64-bit bash</a></td>
+<td>65.6 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">13c57188a4bcb7462a7580c9ddf8ff2d301e353c835d33042a51a231667cf25d</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-MacOSX-x86_64.pkg">Miniconda3 macOS Intel x86 64-bit pkg</a></td>
+<td>65.2 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">7654b911e5649b051d9695e015bc2f24309fbade5d6298ba4c2f2d2118bd524a</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-MacOSX-arm64.sh">Miniconda3 macOS Apple M1 64-bit bash</a></td>
+<td>64.6 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">71b7ca2ae4068504f9c6dab30fd6e83694086241156af1e319d598befe0f3a26</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-MacOSX-arm64.pkg">Miniconda3 macOS Apple M1 64-bit pkg</a></td>
+<td>64.2 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">57674d7cd22529e8425c76507ebbc4ebb6eb4c2fa36b9563439ceb88b5401765</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.9</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-MacOSX-x86_64.sh">Miniconda3 macOS Intel x86 64-bit bash</a></td>
+<td>65.0 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">dcbbdf92dc2954c79002b64ed53d3451e191dbdde0b30c67334f41dc6ca46ac1</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-MacOSX-x86_64.pkg">Miniconda3 macOS Intel x86 64-bit pkg</a></td>
+<td>64.6 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">dd4068750b09409436f5e4829007b06e1726c34acf1aff7248a73b2562b6599f</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-MacOSX-arm64.sh">Miniconda3 macOS Apple M1 64-bit bash</a></td>
+<td>64.1 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">1b10164086354b39a46ff928eef5797ff57e0fa9706ccaf7d4e621b416541479</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-MacOSX-arm64.pkg">Miniconda3 macOS Apple M1 64-bit pkg</a></td>
+<td>63.7 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">c8fa540f615cf164f5a1200313be78654aaf074ca184bf22c4423e90802edd37</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.8</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-MacOSX-x86_64.sh">Miniconda3 macOS Intel x86 64-bit bash</a></td>
+<td>66.5 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">6dc8bfb3b382c31be1755545ae6afc5fbdf8a67726ffdb8a05b917204bd08779</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-MacOSX-x86_64.pkg">Miniconda3 macOS Intel x86 64-bit pkg</a></td>
+<td>66.2 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">ad702119896d6dbf25c945174b9999f5bff562e214654310d7f281aa18140349</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-MacOSX-arm64.sh">Miniconda3 macOS Apple M1 64-bit bash</a></td>
+<td>65.7 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">782bd1a401b20b41227a086adae98e270bbc942c3b7621788fb5574a9583142e</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-MacOSX-arm64.pkg">Miniconda3 macOS Apple M1 64-bit pkg</a></td>
+<td>65.3 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">dd3eeb5b09f45aa5a1a4f921581582450f4c05ae35f7dd9f837a24f61f9442f5</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="linux-installers">
+<h2>Linux installers<a class="headerlink" href="#linux-installers" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="colwidths-given docutils" id="id42">
+<caption><span class="caption-text">Linux</span><a class="headerlink" href="#id42" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="5%" />
+<col width="10%" />
+<col width="5%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Python version</th>
+<th class="head">Name</th>
+<th class="head">Size</th>
+<th class="head">SHA256 hash</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Python 3.11</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-x86_64.sh">Miniconda3 Linux 64-bit</a></td>
+<td>98.4 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">634d76df5e489c44ade4085552b97bebc786d49245ed1a830022b0b406de5817</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-aarch64.sh">Miniconda3 Linux-aarch64 64-bit</a></td>
+<td>76.4 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">3962738cfac270ae4ff30da0e382aecf6b3305a12064b196457747b157749a7a</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-ppc64le.sh">Miniconda3 Linux-ppc64le 64-bit</a></td>
+<td>77.3 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">92237cb2a443dd15005ec004f2f744b14de02cd5513a00983c2f191eb43d1b29</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py311_23.5.2-0-Linux-s390x.sh">Miniconda3 Linux-s390x 64-bit</a></td>
+<td>94.5 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">221a4cd7f0a9275c3263efa07fa37385746de884f4306bb5d1fe5733ca770550</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.10</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-x86_64.sh">Miniconda3 Linux 64-bit</a></td>
+<td>91.4 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">ea5e6e8a3d5a0247b9df85382d27220fac8e59b5778fd313c5913879cd9baafc</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-aarch64.sh">Miniconda3 Linux-aarch64 64-bit</a></td>
+<td>72.9 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">24f7fe91032538cf2d9748facabae346e45e46ca21bb5f2d5875b7865dca6fa4</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-ppc64le.sh">Miniconda3 Linux-ppc64le 64-bit</a></td>
+<td>74.1 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">3a76e4e400271d1589770dac8f696b03d1faf45fee57da38e8c399b6cb0daadb</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py310_23.5.2-0-Linux-s390x.sh">Miniconda3 Linux-s390x 64-bit</a></td>
+<td>88.0 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">7a65b8593db0ec4b561b9968daca7c7c4f5f95cb21fe717ba895fded924bc056</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.9</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-Linux-x86_64.sh">Miniconda3 Linux 64-bit</a></td>
+<td>89.1 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">9829d95f639bd0053b2ed06d1204e60644617bf37dd5cc57523732e0e8d64516</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-Linux-aarch64.sh">Miniconda3 Linux-aarch64 64-bit</a></td>
+<td>83.9 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">ecc06a39bdf786ebb8325a2754690a808f873154719c97d10087ef0883b69e84</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-Linux-ppc64le.sh">Miniconda3 Linux-ppc64le 64-bit</a></td>
+<td>84.5 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">dc5aee01ee36a154b8070e6948b9a43773b6942476a144bc89e6135ac5beac58</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-Linux-s390x.sh">Miniconda3 Linux-s390x 64-bit</a></td>
+<td>85.5 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">40ece8784a9e7dd521ab354ffc816bb466842ae3eee681a93647945c5070c9b4</span></code></td>
+</tr>
+<tr class="row-even"><td>Python 3.8</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-Linux-x86_64.sh">Miniconda3 Linux 64-bit</a></td>
+<td>89.3 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">e2a4438671e0e42c5bba14cb51de6ce9763938184d6ca2967340bbe972bbe7e6</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-Linux-aarch64.sh">Miniconda3 Linux-aarch64 64-bit</a></td>
+<td>72.7 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">cd39b811ac9a2f9094c4dfff9ec0f7ec811d6ad7ede5ab3f1a31d330ab3a2c55</span></code></td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-Linux-ppc64le.sh">Miniconda3 Linux-ppc64le 64-bit</a></td>
+<td>74.1 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">6fc3bf00d4fe0c724fab884d93b981acbc22bb8fc41c144df6d2fc080ff80e25</span></code></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="https://repo.anaconda.com/miniconda/Miniconda3-py38_23.5.2-0-Linux-s390x.sh">Miniconda3 Linux-s390x 64-bit</a></td>
+<td>85.8 MiB</td>
+<td><code class="docutils literal notranslate"><span class="pre">b840fd5a8474a3e6831cd50a64eadf73239c6ad7deeebf2c3d3fe366220b2722</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="release-notes">
+<h2>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="miniconda_release_notes.html"><span class="doc">Release Notes for Miniconda</span></a></li>
+</ul>
+</div>
+<div class="section" id="other-resources">
+<h2>Other resources<a class="headerlink" href="#other-resources" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://hub.docker.com/r/continuumio/">Miniconda Docker
+images</a></li>
+<li><a class="reference external" href="https://aws.amazon.com/marketplace/seller-profile?id=29f81979-a535-4f44-9e9f-6800807ad996">Miniconda AWS
+images</a></li>
+<li><a class="reference external" href="https://repo.anaconda.com/miniconda/">Archive and SHA256 sums for the
+installers</a></li>
+<li><a class="reference external" href="https://conda.io/projects/continuumio-conda/en/latest/release-notes.html">conda change
+log</a></li>
+</ul>
+<p>These Miniconda installers contain the conda
+package manager and Python. Once Miniconda is
+installed, you can use the conda command to install
+any other packages and create environments, etc.
+For example:</p>
+<div class="highlight-bash notranslate docutils container">
+<div class="highlight docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda install numpy
+...
+$ conda create -n py3k anaconda python=3
+...
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are two variants of the installer: Miniconda
+is Python 2 based and Miniconda3 is Python 3 based.
+Note that the choice of which Miniconda is
+installed only affects the root environment.
+Regardless of which version of Miniconda you
+install, you can still install both Python 2.x and
+Python 3.x environments.</p>
+<p>The other difference is that the Python 3 version
+of Miniconda will default to Python 3 when creating
+new environments and building packages. So for
+instance, the behavior of:</p>
+<div class="highlight-bash notranslate docutils container">
+<div class="highlight docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda create -n myenv python
+</pre></div>
+</div>
+</div>
+</div>
+<p>will be to install Python 2.7 with the Python 2
+Miniconda and to install Python 3.10 with the Python
+3 Miniconda. You can override the default by
+explicitly setting <code class="docutils literal notranslate"><span class="pre">python=2</span></code> or <code class="docutils literal notranslate"><span class="pre">python=3</span></code>. It
+also determines the default value of <code class="docutils literal notranslate"><span class="pre">CONDA_PY</span></code>
+when using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">build</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you already have Miniconda or Anaconda
+installed, and you just want to upgrade, you should
+not use the installer. Just use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">update</span></code>.</p>
+</div>
+<p>For instance:</p>
+<div class="highlight-bash notranslate docutils container">
+<div class="highlight docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ conda update conda
+</pre></div>
+</div>
+</div>
+</div>
+<p>will update conda.</p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="help-support.html" class="btn btn-neutral float-right" title="Help and support" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="conda-build.html" class="btn btn-neutral float-left" title="Conda-build" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Anaconda, Inc.
+      
+        <span class="commit">
+          Revision <code>e13a319b</code>.
+        </span>
+      
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: latest
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+          <dd><a href="/en/main/">main</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+          <dd><a href="//docs.conda.io/_/downloads/en/latest/htmlzip/">html</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.com/projects/continuumio-conda-docs/?fromdocs=continuumio-conda-docs">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.com/builds/continuumio-conda-docs/?fromdocs=continuumio-conda-docs">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-27761864-11', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+
+</script>
+
+
+</body>
+</html>
